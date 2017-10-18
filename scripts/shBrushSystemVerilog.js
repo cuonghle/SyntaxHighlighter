@@ -50,7 +50,7 @@
 	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['systemverilog'];
 
-	SyntaxHighlighter.brushes.Systemverilog = Brush;
+	SyntaxHighlighter.brushes.SystemVerilog = Brush;
 
 	// CommonJS
 	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
