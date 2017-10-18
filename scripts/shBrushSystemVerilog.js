@@ -21,6 +21,31 @@
 
 	function Brush()
 	{
+		var constants = 'true false TRUE FALSE';
+		
+		var datatypes = 'real realtime event reg wire integer logic bit time byte chandle genvar signed unsigned ' + 
+						'shortint shortreal string void int specparam input output inout ref';
+						
+		var parameters = 'parameter localparam virtual var protected rand const static automatic extern forkjoin export import';
+		
+		var conditions = 'if else iff elsif endif ifdef ifndef for foreach do while forever repeat case casex casez endcase';
+		
+		var functions = 'finish stop exit realtime stime time printtimescale timeformat bitstoreal realtobits bitstoshortreal ' +
+						'shortrealtobits itor rtoi signed unsigned cast bits isunbounded typename unpacked_dimensions dimensions ' +
+						'left right low high increment size clog2 asin ln acos log10 ' +
+						'atan exp atan2 sqrt hypot pow sinh floor cosh ceil tanh ' +
+						'sin asinh cos acosh tan atanh countbits countones onehot onehot0 isunknown ' +
+						'fatal error warning info fatal error warning info asserton assertoff assertkill ' +
+						'assertcontrol assertpasson assertpassoff assertfailon assertfailoff assertnonvacuouson assertvacuousoff sampled rose fell stable ' +
+						'changed past past_gclk rose_gclk fell_gclk stable_gclk changed_gclk future_gclk rising_gclk falling_gclk steady_gclk ' +
+						'changing_gclk coverage_control coverage_get_max coverage_get coverage_merge coverage_save get_coverage set_coverage_db_name load_coverage_db random urandom ' +
+						'urandom_range dist_chi_square dist_erlang dist_exponential dist_normal dist_poisson dist_t dist_uniform q_initialize q_add q_remove ' +
+						'q_full q_exam asyncandarray asyncandplane asyncnandarray asyncnandplane asyncorarray asyncorplane asyncnorarray asyncnorplane syncandarray ' +
+						'syncandplane syncnandarray syncnandplane syncorarray syncorplane syncnorarray syncnorplane system contained transparent num ' +
+						'size delete exists first last next prev insert pop_front pop_back push_front ' +
+						'push_back find find_index find_first find_first_index find_last find_last_index min max reverse sort ' +
+						'rsort shuffle sum product and or xor';
+		
 		var keywords =	'fork join join_any join_none begin end module endmodule function endfunction task ' +
 						'endtask always always_ff always_latch always_comb initial this generate endgenerate config endconfig ' +
 						'class endclass clocking endclocking interface endinterface module endmodule package endpackage modport ' +
@@ -107,7 +132,8 @@
 						'UVM_TLM_NONBLOCKING_PUT_MASK UVM_TLM_NONBLOCKING_SLAVE_MASK UVM_TLM_NONBLOCKING_TRANSPORT_MASK UVM_TLM_OK_RESPONSE UVM_TLM_PEEK_MASK UVM_TLM_PUT_MASK UVM_TLM_READ_COMMAND UVM_TLM_SLAVE_BIT_MASK UVM_TLM_SLAVE_MASK UVM_TLM_TASK_ERROR UVM_TLM_TRANSPORT_MASK ' +
 						'UVM_TLM_UPDATED UVM_TLM_WRITE_COMMAND UVM_TRANSPORT_IMP UVM_UNBOUNDED_CONNECTIONS UVM_UNFORMAT2 UVM_UNFORMAT4 UVM_UNPACK UVM_UNSIGNED UVM_USE_CALLBACKS_OBJECTION_FOR_TEST_DONE UVM_USE_FILE_LINE UVM_USE_FPC ' +
 						'UVM_USE_OVM_RUN_SEMANTIC UVM_USE_P_FORMAT UVM_USE_PROCESS_CONTAINER UVM_USE_PROCESS_STATE UVM_USE_SUSPEND_RESUME UVM_USE_TYPENAME UVM_VERBOSITY UVM_VERSION_1_1 UVM_VERSION_DEFINES_SVH UVM_VERSION_STRING UVM_VERSION_SVH ' +
-						'UVM_WARNING UVM_WRITE';
+						'UVM_WARNING UVM_WRITE ' + 
+						'struct union enum typedef';
 
 
 		this.regexList = [
@@ -117,9 +143,12 @@
 			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },		// strings
 			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },		// strings
 			{ regex: /\b([\d]+(\.[\d]+)?|0x[a-f0-9]+)\b/gi,				css: 'value' },			// numbers
-			{ regex: /(?!\@interface\b)\@[\$\w]+\b/g,					css: 'color1' },		// annotation @anno
-			{ regex: /\@interface\b/g,									css: 'color2' },		// @interface keyword
-			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),		css: 'keyword' }		// java keyword
+			{ regex: new RegExp(this.getKeywords(constants), 'gm'),		css: 'constants' },		// constants
+			{ regex: new RegExp(this.getKeywords(datatypes), 'gm'),		css: 'variable' },		// datatypes
+			{ regex: new RegExp(this.getKeywords(parameters), 'gm'),	css: 'color2' },		// parameters
+			{ regex: new RegExp(this.getKeywords(conditions), 'gm'),	css: 'color3' },		// conditions
+			{ regex: new RegExp(this.getKeywords(functions), 'gm'),		css: 'functions' },		// functions
+			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),		css: 'keyword' }		// sverilog keyword
 			];
 
 		this.forHtmlScript({
