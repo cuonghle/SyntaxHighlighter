@@ -146,7 +146,7 @@
 			{ regex: new RegExp(this.getKeywords(constants), 'gm'),		css: 'constants' },		// constants
 			{ regex: new RegExp(this.getKeywords(datatypes), 'gm'),		css: 'variable' },		// datatypes
 			{ regex: new RegExp(this.getKeywords(parameters), 'gm'),	css: 'color2' },		// parameters
-			{ regex: new RegExp(this.getKeywords(conditions), 'gm'),	css: 'color3' },		// conditions
+			{ regex: new RegExp(this.getKeywords(conditions), 'gm'),	css: 'color1' },		// conditions
 			{ regex: new RegExp(this.getKeywords(functions), 'gm'),		css: 'functions' },		// functions
 			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),		css: 'keyword' }		// sverilog keyword
 			];
