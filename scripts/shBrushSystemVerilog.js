@@ -44,7 +44,7 @@
 						'syncandplane syncnandarray syncnandplane syncorarray syncorplane syncnorarray syncnorplane system contained transparent num ' +
 						'size delete exists first last next prev insert pop_front pop_back push_front ' +
 						'push_back find find_index find_first find_first_index find_last find_last_index min max reverse sort ' +
-						'rsort shuffle sum product and or xor';
+						'rsort shuffle sum product and or xor display';
 		
 		var keywords =	'fork join join_any join_none begin end module endmodule function endfunction task ' +
 						'endtask always always_ff always_latch always_comb initial this generate endgenerate config endconfig ' +
