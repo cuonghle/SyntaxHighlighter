@@ -48,8 +48,8 @@
 			{ regex: new RegExp(this.getKeywords(condition), 'gm'),		css: 'keyword' },
 			{ regex: new RegExp(this.getKeywords(repeats), 'gm'),		css: 'keyword' },
 			{ regex: new RegExp(this.getKeywords(structs), 'gm'),		css: 'color3' },
-			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),		css: 'keyword bold' }
-			{ regex: new RegExp(this.getKeywords(functions), 'gm'),		css: 'functions bold' },
+			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),		css: 'keyword bold' },
+			{ regex: new RegExp(this.getKeywords(functions), 'gm'),		css: 'functions bold' }
 			];
 
 		this.forHtmlScript({
