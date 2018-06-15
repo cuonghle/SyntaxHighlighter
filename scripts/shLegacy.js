@@ -1,19 +1,3 @@
-/**
- * SyntaxHighlighter
- * http://alexgorbatchev.com/SyntaxHighlighter
- *
- * SyntaxHighlighter is donationware. If you are using it, please donate.
- * http://alexgorbatchev.com/SyntaxHighlighter/donate.html
- *
- * @version
- * 3.0.83 (Wed, 16 Apr 2014 03:56:09 GMT)
- *
- * @copyright
- * Copyright (C) 2004-2013 Alex Gorbatchev.
- *
- * @license
- * Dual licensed under the MIT and GPL licenses.
- */
 var dp = {
 	SyntaxHighlighter : {}
 };
@@ -30,12 +14,12 @@ dp.SyntaxHighlighter = {
 	{
 		function getValue(list, name)
 		{
-			var regex = XRegExp('^' + name + '\\[(?<value>\\w+)\\]$', 'gi'),
+			var regex = new XRegExp('^' + name + '\\[(?<value>\\w+)\\]$', 'gi'),
 				match = null
 				;
 			
 			for (var i = 0; i < list.length; i++) 
-				if ((match = XRegExp.exec(list[i], regex)) != null)
+				if ((match = regex.exec(list[i])) != null)
 					return match.value;
 			
 			return null;
